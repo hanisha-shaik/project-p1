@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vaagdevi Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+      position: relative;
+    }
+
+    .dropdown {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .dropbtn {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      width: 100px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      z-index: 1;
+      top: 300px;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-btn {
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-btn:hover {
+      background-color: #218838;
+    }
+    .vag{
+        width: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <div class="dropdown">
+        <img class="vag" src="vaagdevi.jpeg"/>
+      <h3>VAAGDEVI COLLEGE OF ENGINEERING</p>
+      <button class="dropbtn" onclick="toggleMenu()">Login as</button>
+      <div class="dropdown-content" id="dropdown-menu">
+        <a href="#">Student</a>
+        <a href="#">Admin </a>
+      </div>
+    </div>
+
+    <input type="text" placeholder="Enter Username" />
+    <input type="password" placeholder="Enter Password" /> <br><br>
+    <a href="learn.html"
+    <button class="login-btn">Login  </button>
+</a> 
+  </div>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("dropdown-menu");
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn Concept Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #002244;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card a {
+      display: block;
+      margin-top: 10px;
+      color: rgb(227, 19, 50);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">Learn Concept Hub</div>
+    <div class="menu">
+      <a href="home.html">Home</a>
+      <a href="subjects.html">dashboard</a>
+      <a href="frontpage.html">Logout</a>
+      
+    </div>
+  </div>
+
+  <h1>Welcome to Learn Concept Hub</h1>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search study materials..." />
+    <button onclick="searchCards()">Search</button>
+  </div>
+
+  <div class="cards" id="cardsContainer">
+    <div class="card">
+      <h3>COMPUTER ORGANISATION OF ARCTITECTURE</h3>
+      <p>Notes on COA</p>
+      <a href="https://drive.google.com/drive/folders/1MZDUR0UEAx5qXqobEyb8-oOgMLJKP_s2?usp=sharing">Download Notes</a>
+    </div>
+    <div class="card">
+      <h3>DIGITAL ANALYSIS OF ALGORITHMS</h3>
+      <p>Notes on DAA</p>
+      <a href="https://drive.google.com/drive/folders/1O9P3gghqlJUwDCd_XKwYluC_1rp3b8VD?usp=drive_link">Download Notes</a>
+    </div>
+    <div class="card">
+      <h3>DBMS </h3>
+      <p>Complete DBMS syllabus notes.</p>
+      <a href="https://drive.google.com/drive/folders/15nV231b4rOV_zufj0YBwLZqD4EqlJVFP?usp=sharing">Download Notes</a>
+    </div>
+    <div class="card">
+      <h3>DATA STUCTURES</h3>
+      <p>Important Questions and Previous Year Question Papers</p>
+      <a href="https://drive.google.com/drive/folders/1pJrynachWHL76y02dt0t0dFn1JTKZHWB?usp=sharing">Download Notes</a>
+    </div>
+    <div class="card">
+      <h3>JAVA</h3>
+      <p>Java Notes</p>
+      <a href="https://drive.google.com/drive/folders/1-UbWoODPIZyQZILCBPLJhkhbzoHykww0?usp=sharing">Download Notes</a>
+    </div>
+  <div class="card">
+    <h3>CYBER  FORENSICS </h3>
+    <p>complete Notes</p>
+    <a href="https://drive.google.com/drive/folders/11h6JrKt4r2J9rlu6fhnsWPHBb6KENZSa?usp=sharing ">Download notes</a>
+</div>
+  </div>
+  <script>
+    function searchCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Prevent "Back" navigation from exiting the dashboard
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.go(1); // stops going back
+    };
+  </script>
+
+</body>
+</html>

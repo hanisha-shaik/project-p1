@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Concept Hub</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Front Page Styling */
+    .front-page {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1581090700227-1e7d9b092d92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeOut 3s ease 6s forwards;
+    }
+
+    .front-page h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      animation: slideDown 1s ease;
+    }
+
+    .front-page p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      max-width: 700px;
+      animation: fadeIn 2s ease 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes slideDown {
+      from {transform: translateY(-50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Home Page Styling */
+    .home-page {
+      display: none;
+      padding: 50px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    /* Auth Section */
+    .auth-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .auth-container {
+      width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .auth-container h2 {
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .auth-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .auth-container input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .auth-container button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .auth-container button:hover {
+      background-color: #45a049;
+    }
+
+    .auth-container p {
+      text-align: center;
+    }
+
+    /* Content Section */
+    .content-section {
+      margin-top: 50px;
+    }
+
+    .content-section img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .content-text {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .image-gallery {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .image-gallery img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Front Page -->
+<div class="front-page" id="frontPage">
+  <h1>Welcome to Learn Concept Hub</h1>
+  <p>Explore, Learn, and Master Concepts from Every Domain. Your Gateway to Academic Success Starts Here!</p>
+  <button onclick="showLoginPage()">Start</button>
+</div>
+
+<!-- Home Page -->
+<div class="home-page" id="homePage">
+  <img class="vag" src="vaagdevi.jpeg"/>
+  <!-- Auth Section (Login / Sign-up) -->
+  <div class="auth-section">
+    <div class="auth-container">
+      <h2>Sign Up / Login</h2>
+
+      <!-- Login Form -->
+      <form id="loginForm" onsubmit="login(event)">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+
+      <p>Don't have an account? <a href="#" style="color: #4CAF50;" onclick="toggleSignUp()">Sign up here</a></p>
+
+      <!-- Sign Up Form (hidden for now) -->
+      <form id="signUpForm" style="display:none;" onsubmit="signUp(event)">
+        <input type="text" placeholder="Username" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content Section -->
+  <div class="content-section">
+    <img src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Learning">
+    <div class="content-text">
+      <h3>About Learn Concept Hub</h3>
+      <p>Learn Concept Hub is a centralized platform designed to help students and professionals excel in their academic journey. Access high-quality notes, tutorials, quizzes, and real-world projects under one roof. Whether you are preparing for exams or enhancing your skills, Learn Concept Hub is your trusted companion.</p>
+    </div>
+  </div>
+
+  <div class="image-gallery">
+    <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Books">
+    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" alt="Study">
+  </div>
+</div>
+
+<script>
+  // Automatically move to home page after front page animation
+  setTimeout(() => {
+    document.getElementById('frontPage').style.display = 'none';
+    document.getElementById('homePage').style.display = 'block';
+  }, 7000); // 7 seconds
+
+  // Function to show the login page after clicking "Start" button
+  function showLoginPage() {
+    document.getElementById('frontPage').style.display = 'none';
+    document.getElementById('homePage').style.display = 'block';
+  }
+
+  // Toggle between login and signup forms
+  function toggleSignUp() {
+    const loginForm = document.getElementById('loginForm');
+    const signUpForm = document.getElementById('signUpForm');
+    loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+    signUpForm.style.display = signUpForm.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Handle login form submission
+  function login(event) {
+    event.preventDefault();
+    // For now, just redirect to home page after login
+    alert("Login Successful");
+    window.location.href = "home.html"; // Redirect to home page
+  }
+
+  // Handle sign-up form submission
+  function signUp(event) {
+    event.preventDefault();
+    // For now, just redirect to home page after sign-up
+    alert("Sign Up Successful");
+    window.location.href = "home.html"; // Redirect to home page
+  }
+</script>
+
+</body>
+</html>
